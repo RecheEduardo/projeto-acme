@@ -15,8 +15,6 @@ Lista *criaLista();
 
 void abortaPrograma();
 
-void exibirMenu();
-
 // Verificadores
 
 int tamanhoLista(Lista *li);
