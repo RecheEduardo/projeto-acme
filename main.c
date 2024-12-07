@@ -4,8 +4,6 @@
 #include <string.h>
 #include "acme.h"
 
-void exibeMenu();
-
 int main()
 {
     int opcao;
@@ -21,7 +19,7 @@ int main()
 
         switch (opcao) {
             case 1:
-
+                coletaDados();
                 break;
 
             case 2:
@@ -53,17 +51,8 @@ int main()
         }
 
     } while (opcao != 7);
+
     return 0;
 }
 
-void exibeMenu(){
-        printf("\t========================================\n\n");
-        printf("\tOP플O 1 - INSERIR CLIENTE\n\n");
-        printf("\tOP플O 2 - EXIBIR LISTA COMPLETA\n\n");
-        printf("\tOP플O 3 - EXIBIR CONTATO\n\n");
-        printf("\tOP플O 4 - BUSCAR CLIENTE POR NOME\n\n");
-        printf("\tOP플O 5 - EDITAR CONTATO\n\n");
-        printf("\tOP플O 6 - REMOVER CONTATO\n\n");
-        printf("\tOP플O 7 - SALVAR E SAIR\n\n");
-        printf("\t========================================\n\n");
-}
+
