@@ -6,22 +6,36 @@
 
 int main()
 {
-    int opcao;
+    Lista *li = NULL;
+
+    int x, opcao;
+
+    CLIENTE cl;
+
     setlocale(LC_ALL, "Portuguese");
 
-    printf("\n\tSISTEMA INTEGRADO DA EMPRESA ACMEÆ\n\n");
+    if(li = criaLista() == NULL){
+        abortaPrograma();
+    }
+
+    printf("\n\tSISTEMA INTEGRADO DA EMPRESA ACMEÔøΩ\n\n");
     printf("\n\tProjeto de Eduardo Reche Martins e Diego Rocha Vitali\n\n");
     do {
         exibeMenu();
-        printf("\tEscolha uma opÁ„o: ");
+        printf("\tEscolha uma op√ß√£o: ");
         scanf("%d", &opcao);
         getchar();
 
         switch (opcao) {
             case 1:
-                coletaDados();
+                cl = coletaDados();
+                x = insereOrdenado(li, cl); // por algum motivo ta dando erro aqui
+                if(x){
+                    printf("Cliente de numero %d incluido com sucesso!" , x);
+                }else{
+                    printf("ERRO! Cliente n√£o foi inserido...");
+                }
                 break;
-
             case 2:
 
                 break;
@@ -47,7 +61,7 @@ int main()
                 break;
 
             default:
-                printf("\n\n\n\tOpÁ„o Inv·lida!\n\n");
+                printf("\n\n\n\tOp√ß√£o Inv√°lida!\n\n");
         }
 
     } while (opcao != 7);

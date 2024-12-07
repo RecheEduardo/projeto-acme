@@ -1,14 +1,21 @@
 # depslib dependency file v1.0
-1733606099 source:c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\main.c
+1733609275 source:c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	<string.h>
 	"acme.h"
 
-1733602996 c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\acme.h
+1733606708 c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\acme.h
 
 1733604151 c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\acme.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
+1733609240 source:c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\acme.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>

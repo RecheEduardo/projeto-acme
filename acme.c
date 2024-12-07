@@ -24,8 +24,8 @@ Lista *criaLista(){
 
 // PROCEDIMENTO DE ABORTAR O PROGRAMA EM CASO DE ERROS
 void abortaPrograma(){
-    printf("ERRO! Lista não foi alocada\n");
-    printf("O programa será encerrado...\n\n");
+    printf("\n\tERRO! Lista não foi alocada\n");
+    printf("\n\tO programa será encerrado...\n\n");
     system("pause");
     exit(1);
 }
