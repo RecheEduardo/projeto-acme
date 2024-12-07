@@ -20,7 +20,18 @@ Lista *criaLista(){
     return li;
 }
 
-// FUNÇÃO DE ABORTAR O PROGRAMA EM CASO DE ERROS
+// PROCEDIMENTO DE EXIBIR O MENU NA TELA
+void exibirMenu(){
+    printf("\t\tOPÇÃO 1 - INSERIR CLIENTE\n\n");
+    printf("\t\tOPÇÃO 2 - EXIBIR LISTA COMPLETA\n\n");
+    printf("\t\tOPÇÃO 3 - EXIBIR CONTATO\n\n");
+    printf("\t\tOPÇÃO 4 - BUSCAR CLIENTE POR NOME\n\n");
+    printf("\t\tOPÇÃO 5 - EDITAR CONTATO\n\n");
+    printf("\t\tOPÇÃO 6 - REMOVER CONTATO\n\n");
+    printf("\t\tOPÇÃO 7 - SALVAR E SAIR\n\n");
+}
+
+// PROCEDIMENTO DE ABORTAR O PROGRAMA EM CASO DE ERROS
 void abortaPrograma(){
     printf("ERRO! Lista não foi alocada\n");
     printf("O programa será encerrado...\n\n");
@@ -148,6 +159,3 @@ void apagaLista(Lista *li){
         free(li);
     }
 }
-
-
-

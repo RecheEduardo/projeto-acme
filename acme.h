@@ -10,11 +10,12 @@ typedef struct cliente{
 
 typedef struct elemento* Lista;
 
-// EDUARDO RECHE MARTINS - GU3054209
 
 Lista *criaLista();
 
 void abortaPrograma();
+
+void exibirMenu();
 
 // Verificadores
 
@@ -51,6 +52,3 @@ int removeOrdenado(Lista *li , int ID);
 // 7- Salvar dados e Fechar programa
 
 void apagaLista(Lista *li);
-
-
-
