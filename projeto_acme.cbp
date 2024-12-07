@@ -32,9 +32,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="acme.c">
-			<Option compilerVar="CPP" />
-			<Option compile="0" />
-			<Option link="0" />
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="acme.h" />
 		<Unit filename="main.c">
