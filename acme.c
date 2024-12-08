@@ -89,7 +89,7 @@ CLIENTE coletaDados(){
 
     CLIENTE cl;
 
-    printf("\n\n\tInserindo novo cliente:\n\n");
+    printf("\n\n\tInsira os dados do cliente:\n\n");
     printf("\n\tID: ");
     scanf("%d", &cl.ID);
     getchar();
@@ -167,6 +167,7 @@ void exibirListaCompleta(Lista *li){
         printf("\n\t========================================\n\n");
         no = no->prox;
     }
+    free(no);
 }
 
 // OPÇÃO 3 - CONSULTAR POR ID
@@ -209,6 +210,36 @@ int consultaNome(Lista *li, char nome[80]){
     return numDeClientes;
 }
 
+// OPÇÃO 5 - EDITAR CLIENTE
+int editarCliente(Lista *li , int ID){
+
+    if(li == NULL){
+        abortaPrograma();
+    }
+
+    int editar;
+    CLIENTE novoCliente;
+
+    ELEM *no = *li;
+    consultaID(li,ID, &no->dados);
+    exibirDadosCliente(&no->dados);
+
+    printf("\n\tTem certeza que quer editar os dados do cliente %d? (1 = Sim / 0 = Nao): ", ID);
+    scanf("%d", &editar);
+    getchar();
+
+    if(editar == 1){
+        exibirDadosCliente(&no->dados);
+        novoCliente = coletaDados();
+        removeOrdenado(li, &no->dados);
+        insereOrdenado(li, novoCliente);
+    }
+    else{
+        printf("\n\tRetornando ao menu principal...\n\n");
+        return;
+    }
+    return ID;
+}
 
 // OPÇÃO 6 - REMOVER CONTATO POR ID
 int removeOrdenado(Lista *li, int ID){
@@ -241,7 +272,7 @@ int removeOrdenado(Lista *li, int ID){
 
 
 // OPÇÃO 7 - SALVAR DADOS E APAGAR A LISTA
-void salvarContatos(Lista *li){
+void salvarClientes(Lista *li){
     // FALTA FAZER A LÓGICA E SALVAR OS DADOS NO ARQUIVO EM BINÁRIO AQUI
 }
 

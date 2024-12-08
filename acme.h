@@ -30,7 +30,7 @@ int listaVazia(Lista *li);
 // Coleta dados do cliente
 CLIENTE coletaDados();
 
-// 1 - Inserir Contato
+// 1 - Inserir Cliente
 int insereOrdenado(Lista *li, CLIENTE cl);
 
 
@@ -50,12 +50,12 @@ int consultaNome(Lista *li, char nome[80]);
 //           com o nome que o usuario vai digitar.
 
 
-// 5 - Editar contato por ID
-// --- foo
+// 5 - Editar cliente por ID
+int editarCliente(Lista *li, int ID);
 
-// 6 - Remover Contato por ID
+// 6 - Remover cliente por ID
 int removeOrdenado(Lista *li , int ID);
 
 // 7- Salvar dados e Fechar programa
-void salvarContatos(Lista *li);
+void salvarClientes(Lista *li);
 void apagaLista(Lista *li);

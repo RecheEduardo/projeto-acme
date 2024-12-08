@@ -69,7 +69,17 @@ int main()
                 break;
 
             case 5:
-
+                printf("\n\tDigite o ID do cliente que deseja editar: ");
+                scanf("%d" , &id);
+                getchar();
+                printf("\n");
+                x = editarCliente(li, id);
+                if(x){
+                    printf("\n\t========================================\n\n");
+                    printf("\tCliente %d editado com sucesso!\n\n" , x);
+                }else{
+                    printf("\n\tERRO! Cliente nao foi editado...\n\n");
+                }
                 break;
 
             case 6:
