@@ -7,6 +7,7 @@
 int main()
 {
     Lista *li = NULL;
+    FILE *f1;
 
     int x, opcao, id;
     char nome[80];
@@ -16,15 +17,20 @@ int main()
     setlocale(LC_ALL, "Portuguese");
 
     li = criaLista();
+
+    // Abrir Arquivo Binário e Verificar se já existe dados salvos
+    f1 = fopen("clientes.bin", "rb");
+    if (f1 == NULL) {
+        printf("\n\t================================================================\n");
+        printf("\tArquivo 'clientes.bin' não encontrado. Um novo arquivo será criado ao salvar.\n");
+        printf("\t================================================================\n");
+    } else {
+        carregarDados(f1, li);
+        fclose(f1);
+    }
     if(li == NULL){
         abortaPrograma();
     }
-    ////////////////////////
-
-    // AQUI FALTA A LOGICA DO FILE FOPEN, PRA PUXAR
-    // OS DADOS DO ARQUIVO.BIN
-
-    ////////////////////////
 
     printf("\n\t--------- SISTEMA INTEGRADO DA EMPRESA ACME ---------\n\n");
     printf("\n\tProjeto de Eduardo Reche Martins e Diego Rocha Vitali\n\n");
@@ -37,6 +43,14 @@ int main()
         switch (opcao) {
             case 1: // Ja ta completo
                 cl = coletaDados();
+                //Verifica Duplicidade antes de Inserir na Lista
+                id = cl.ID;
+                x = consultaID(li, id, &cl);
+                if(x){
+                    printf("\n\t========================================\n\n");
+                    printf("\tERRO! ID de Cliente ja cadastrado...\n\n");
+                    break;
+                }
                 x = insereOrdenado(li, cl);
                 if(x){
                     printf("\n\t========================================\n\n");
@@ -99,10 +113,21 @@ int main()
                 }
                 break;
             case 7:
-                // AQUI FALTA INSERIR A FUNCAO DE SALVAR OS DADOS QUANDO ELA TIVER PRONTA
-                // PROVAVELMENTE VC VAI USAR O FWRITE TLGD
-                apagaLista(li);
-                break;
+                f1 = fopen("clientes.bin", "wb");
+                if (f1 == NULL) {
+                    printf("Erro ao abrir o arquivo para salvar os dados.\n");
+                } else {
+                    x = salvarClientes(f1, li);
+                    if(x == 0){
+                        printf("\n\tERRO AO SALVAR DADOS...\n\n");
+                        break;
+                    };
+                    printf("\n\t========================================\n\n");
+                    printf("\tDados salvos com sucesso!\n\n");
+                    fclose(f1);
+                    apagaLista(li);
+                    break;
+                }
 
             default:
                 printf("\n\n\n\tOpcao Invalida!\n\n");

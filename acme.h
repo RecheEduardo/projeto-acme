@@ -29,6 +29,7 @@ int listaVazia(Lista *li);
 
 // Coleta dados do cliente
 CLIENTE coletaDados();
+int carregarDados(FILE *f, Lista *li);
 
 // 1 - Inserir Cliente
 int insereOrdenado(Lista *li, CLIENTE cl);
@@ -57,5 +58,5 @@ int editarCliente(Lista *li, int ID);
 int removeOrdenado(Lista *li , int ID);
 
 // 7- Salvar dados e Fechar programa
-void salvarClientes(Lista *li);
+int salvarClientes(FILE *f, Lista *li);
 void apagaLista(Lista *li);

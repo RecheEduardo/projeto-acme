@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1733682121 source:c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\main.c
+1733682121 source:C:\Users\didiv\OneDrive\Documentos\IFSP ADS\Estrutura de Dados\PH\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -16,6 +16,38 @@
 	"acme.h"
 
 1733681373 source:c:\users\eduardo\desktop\projetos c\projeto final\projeto_acme\acme.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
+1733686885 source:c:\users\didiv\onedrive\documentos\ifsp ads\estrutura de dados\projeto-acme\acme.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
+1733684649 c:\users\didiv\onedrive\documentos\ifsp ads\estrutura de dados\projeto-acme\acme.h
+
+1733684649 source:c:\users\didiv\onedrive\documentos\ifsp ads\estrutura de dados\projeto-acme\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
+1733692715 source:c:\users\didiv\onedrive\documentos\ifsp ads\estrutura de dados\ph\acme.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
+1733692288 c:\users\didiv\onedrive\documentos\ifsp ads\estrutura de dados\ph\acme.h
+
+1733692909 source:c:\users\didiv\onedrive\documentos\ifsp ads\estrutura de dados\ph\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>

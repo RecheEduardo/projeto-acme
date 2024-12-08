@@ -21,6 +21,21 @@ Lista *criaLista(){
     return li;
 }
 
+// FUNÇÃO QUE CARREGA OS DADOS DO ARQUIVO BINÁRIO
+int carregarDados(FILE *f, Lista *li) {
+    if (li == NULL || f == NULL) {
+        return 0;
+    }
+
+    CLIENTE cl;
+    while (fread(&cl, sizeof(CLIENTE), 1, f) == 1) {
+        if (!insereOrdenado(li, cl)) {
+            printf("Erro ao carregar dados do arquivo 'clientes.bin' .\n");
+        }
+    }
+    return 1;
+}
+
 // PROCEDIMENTO DE ABORTAR O PROGRAMA EM CASO DE ERROS
 void abortaPrograma(){
     printf("\n\tERRO! Lista nao foi alocada\n");
@@ -188,32 +203,35 @@ int consultaID(Lista *li, int ID, CLIENTE *cl){
 }
 
 // OPÇÃO 4 - CONSULTAR POR NOME
-int consultaNome(Lista *li, char nome[80]){
-    if(li == NULL){
+int consultaNome(Lista *li, char nome[80]) {
+    if (li == NULL) {
         abortaPrograma();
     }
     int numDeClientes = 0;
     ELEM *no = *li;
-    char *nomeLower = strlwr(nome);
-    char *nomeContatosLower;
-    while(no != NULL){
-        nomeContatosLower = strlwr(no->dados.nomeCliente);
-        if (strcmp(nomeLower, nomeContatosLower) == 0){
-            /* 
-            O B.O AQUI EH QUE ELE SO ACHA O CONTATO SE FOR A MESMA COISA
-            EX: EDUARDO = eduardo
-            MAS SE TIVER UM EDUARDO RECHE E VC PROCURAR eduardo ELE NAO
-            ACHA, VE SE TEM ALGUM JEITO DE FAZER ISSO, SE NAO TIVER DBOA
-            */
+
+    // Converte o nome buscado para minúsculas
+    char nomeLower[80];
+    strcpy(nomeLower, nome);
+    strlwr(nomeLower);
+    /*Troquei a função do NomeLower só p poder fazer o STRSTR funcionar direito*/
+
+    while (no != NULL) {
+        // Converte o nome do cliente para minúsculas
+        char nomeClienteLower[80];
+        strcpy(nomeClienteLower, no->dados.nomeCliente);
+        strlwr(nomeClienteLower);
+
+        if (strstr(nomeClienteLower, nomeLower) != NULL) {
             exibirDadosCliente(&no->dados);
-            no = no->prox;
             numDeClientes++;
-        }else{
-            no = no->prox;
         }
+        no = no->prox;
     }
+
     return numDeClientes;
 }
+
 
 // OPÇÃO 5 - EDITAR CLIENTE
 int editarCliente(Lista *li , int ID){
@@ -236,8 +254,8 @@ int editarCliente(Lista *li , int ID){
     if(editar == 1){
         exibirDadosCliente(&no->dados);
         novoCliente = coletaDados();
-        removeOrdenado(li, &no->dados);  // O B.O AQUI EH QUE ELE TA INSERINDO O NOVO CLIENTE
-        insereOrdenado(li, novoCliente); // MAS N TA APAGANDO O ANTIGO, TIRANDO ISSO FUNCIONA NORMAL
+        removeOrdenado(li, ID);
+        insereOrdenado(li, novoCliente);
     }
     else{
         printf("\n\tRetornando ao menu principal...\n\n");
@@ -275,10 +293,21 @@ int removeOrdenado(Lista *li, int ID){
     return clienteID;
 }
 
-
 // OPÇÃO 7 - SALVAR DADOS E APAGAR A LISTA
-void salvarClientes(Lista *li){
-    // FALTA FAZER A LÓGICA E SALVAR OS DADOS NO ARQUIVO EM BINÁRIO AQUI
+
+int salvarClientes(FILE *f, Lista *li) {
+    if (li == NULL || f == NULL) {
+        return 0;
+    }
+    ELEM *no = *li;
+    while (no != NULL) {
+        if (fwrite(&no->dados, sizeof(CLIENTE), 1, f) != 1) {
+            printf("Erro ao gravar cliente no arquivo.\n");
+            return;
+        }
+        no = no->prox;
+    }
+    return 1;
 }
 
 void apagaLista(Lista *li){
