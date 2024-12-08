@@ -198,8 +198,13 @@ int consultaNome(Lista *li, char nome[80]){
     char *nomeContatosLower;
     while(no != NULL){
         nomeContatosLower = strlwr(no->dados.nomeCliente);
-        if (strcmp(nomeLower, nomeContatosLower) == 0)
-        {
+        if (strcmp(nomeLower, nomeContatosLower) == 0){
+            /* 
+            O B.O AQUI EH QUE ELE SO ACHA O CONTATO SE FOR A MESMA COISA
+            EX: EDUARDO = eduardo
+            MAS SE TIVER UM EDUARDO RECHE E VC PROCURAR eduardo ELE NAO
+            ACHA, VE SE TEM ALGUM JEITO DE FAZER ISSO, SE NAO TIVER DBOA
+            */
             exibirDadosCliente(&no->dados);
             no = no->prox;
             numDeClientes++;
@@ -231,8 +236,8 @@ int editarCliente(Lista *li , int ID){
     if(editar == 1){
         exibirDadosCliente(&no->dados);
         novoCliente = coletaDados();
-        removeOrdenado(li, &no->dados);
-        insereOrdenado(li, novoCliente);
+        removeOrdenado(li, &no->dados);  // O B.O AQUI EH QUE ELE TA INSERINDO O NOVO CLIENTE
+        insereOrdenado(li, novoCliente); // MAS N TA APAGANDO O ANTIGO, TIRANDO ISSO FUNCIONA NORMAL
     }
     else{
         printf("\n\tRetornando ao menu principal...\n\n");

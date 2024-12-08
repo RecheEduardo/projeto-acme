@@ -19,6 +19,10 @@ int main()
     if(li == NULL){
         abortaPrograma();
     }
+    ////////////////////////
+
+    // AQUI FALTA A LOGICA DO FILE FOPEN, PRA PUXAR
+    // OS DADOS DO ARQUIVO.BIN
 
     ////////////////////////
 
@@ -31,7 +35,7 @@ int main()
         getchar();
 
         switch (opcao) {
-            case 1:
+            case 1: // Ja ta completo
                 cl = coletaDados();
                 x = insereOrdenado(li, cl);
                 if(x){
@@ -41,11 +45,11 @@ int main()
                     printf("\n\tERRO! Cliente nao foi inserido...\n\n");
                 }
                 break;
-            case 2:
+            case 2: // Ja ta completo
                 exibirListaCompleta(li);
                 break;
 
-            case 3:
+            case 3: // Ja ta completo
                 printf("\n\tDigite o ID do cliente que deseja consultar: ");
                 scanf("%d" , &id);
                 getchar();
@@ -59,7 +63,7 @@ int main()
                 }
                 break;
 
-            case 4:
+            case 4: // OLHAR NO ACME.C
                 printf("\n\tDigite o nome do cliente buscado: ");
                 fgets(nome, sizeof(nome), stdin);
                 printf("\n");
@@ -68,7 +72,7 @@ int main()
                 printf("\n\tNumero total de clientes encontrados: %d\n\n" , x);
                 break;
 
-            case 5:
+            case 5: // AINDA FALTA
                 printf("\n\tDigite o ID do cliente que deseja editar: ");
                 scanf("%d" , &id);
                 getchar();
@@ -82,7 +86,7 @@ int main()
                 }
                 break;
 
-            case 6:
+            case 6: // Ja ta completo
                 printf("\n\tDigite o ID do cliente que deseja remover: ");
                 scanf("%d" , &id);
                 getchar();
@@ -95,6 +99,8 @@ int main()
                 }
                 break;
             case 7:
+                // AQUI FALTA INSERIR A FUNCAO DE SALVAR OS DADOS QUANDO ELA TIVER PRONTA
+                // PROVAVELMENTE VC VAI USAR O FWRITE TLGD
                 apagaLista(li);
                 break;
 
