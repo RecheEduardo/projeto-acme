@@ -14,15 +14,18 @@ int main()
 
     setlocale(LC_ALL, "Portuguese");
 
-    if(li = criaLista() == NULL){
+    li = criaLista();
+    if(li == NULL){
         abortaPrograma();
     }
 
-    printf("\n\tSISTEMA INTEGRADO DA EMPRESA ACME�\n\n");
+    ////////////////////////
+
+    printf("\n\t--------- SISTEMA INTEGRADO DA EMPRESA ACME ---------\n\n");
     printf("\n\tProjeto de Eduardo Reche Martins e Diego Rocha Vitali\n\n");
     do {
         exibeMenu();
-        printf("\tEscolha uma opção: ");
+        printf("\tEscolha uma opcao: ");
         scanf("%d", &opcao);
         getchar();
 
@@ -31,9 +34,10 @@ int main()
                 cl = coletaDados();
                 x = insereOrdenado(li, cl); // por algum motivo ta dando erro aqui
                 if(x){
-                    printf("Cliente de numero %d incluido com sucesso!" , x);
+                    printf("\n\t========================================\n\n");
+                    printf("\tCliente de numero %d incluido com sucesso!\n\n" , x);
                 }else{
-                    printf("ERRO! Cliente não foi inserido...");
+                    printf("\n\tERRO! Cliente nao foi inserido...\n\n");
                 }
                 break;
             case 2:
@@ -61,7 +65,7 @@ int main()
                 break;
 
             default:
-                printf("\n\n\n\tOpção Inválida!\n\n");
+                printf("\n\n\n\tOpcao Invalida!\n\n");
         }
 
     } while (opcao != 7);

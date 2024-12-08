@@ -14,9 +14,8 @@ typedef struct elemento ELEM;
 
 // FUNÇÃO QUE CRIA A LISTA
 Lista *criaLista(){
-    Lista *li;
-    li = (Lista*) malloc(sizeof(Lista));
-    if(li != NULL){
+    Lista *li = (Lista*) malloc(sizeof(Lista));
+    if(li != NULL) {
         *li = NULL;
     }
     return li;
@@ -24,8 +23,8 @@ Lista *criaLista(){
 
 // PROCEDIMENTO DE ABORTAR O PROGRAMA EM CASO DE ERROS
 void abortaPrograma(){
-    printf("\n\tERRO! Lista não foi alocada\n");
-    printf("\n\tO programa será encerrado...\n\n");
+    printf("\n\tERRO! Lista nao foi alocada\n");
+    printf("\n\tO programa sera encerrado...\n\n");
     system("pause");
     exit(1);
 }
@@ -33,13 +32,13 @@ void abortaPrograma(){
 // PROCEDIMENTO DE EXIBIR AS OPÇÕES DO PROGRAMA NA TELA
 void exibeMenu(){
         printf("\t========================================\n\n");
-        printf("\tOPÇÃO 1 - INSERIR CLIENTE\n\n");
-        printf("\tOPÇÃO 2 - EXIBIR LISTA COMPLETA\n\n");
-        printf("\tOPÇÃO 3 - EXIBIR CONTATO\n\n");
-        printf("\tOPÇÃO 4 - BUSCAR CLIENTE POR NOME\n\n");
-        printf("\tOPÇÃO 5 - EDITAR CONTATO\n\n");
-        printf("\tOPÇÃO 6 - REMOVER CONTATO\n\n");
-        printf("\tOPÇÃO 7 - SALVAR E SAIR\n\n");
+        printf("\tOPCAO 1 - INSERIR CLIENTE\n\n");
+        printf("\tOPCAO 2 - EXIBIR LISTA COMPLETA\n\n");
+        printf("\tOPCAO 3 - EXIBIR CONTATO\n\n");
+        printf("\tOPCAO 4 - BUSCAR CLIENTE POR NOME\n\n");
+        printf("\tOPCAO 5 - EDITAR CONTATO\n\n");
+        printf("\tOPCAO 6 - REMOVER CONTATO\n\n");
+        printf("\tOPCAO 7 - SALVAR E SAIR\n\n");
         printf("\t========================================\n\n");
 }
 

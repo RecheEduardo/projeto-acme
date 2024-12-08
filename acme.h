@@ -10,7 +10,6 @@ typedef struct cliente{
 
 typedef struct elemento* Lista;
 
-
 Lista *criaLista();
 
 void abortaPrograma();
