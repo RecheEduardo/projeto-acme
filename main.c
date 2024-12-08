@@ -8,7 +8,7 @@ int main()
 {
     Lista *li = NULL;
 
-    int x, opcao;
+    int x, opcao, id;
 
     CLIENTE cl;
 
@@ -32,7 +32,7 @@ int main()
         switch (opcao) {
             case 1:
                 cl = coletaDados();
-                x = insereOrdenado(li, cl); // por algum motivo ta dando erro aqui
+                x = insereOrdenado(li, cl);
                 if(x){
                     printf("\n\t========================================\n\n");
                     printf("\tCliente de numero %d incluido com sucesso!\n\n" , x);
@@ -41,11 +41,21 @@ int main()
                 }
                 break;
             case 2:
-
+                exibirListaCompleta(li);
                 break;
 
             case 3:
-
+                printf("\n\tDigite o ID do cliente que deseja consultar: ");
+                scanf("%d" , &id);
+                getchar();
+                x = consultaID(li, id, &cl);
+                if(x) {
+                    printf("\n\t========================================\n\n");
+                    exibirDadosCliente(&cl);
+                }else{
+                    printf("\n\t========================================\n\n");
+                    printf("\tERRO! Cliente inexistente...\n\n");
+                }
                 break;
 
             case 4:
@@ -61,7 +71,7 @@ int main()
                 break;
 
             case 7:
-
+                apagaLista(li);
                 break;
 
             default:

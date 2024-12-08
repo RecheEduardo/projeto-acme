@@ -16,6 +16,10 @@ void abortaPrograma();
 
 void exibeMenu();
 
+void exibirDadosCliente(CLIENTE *cl);
+
+void exibirListaCompleta(Lista *li);
+
 // Verificadores
 int tamanhoLista(Lista *li);
 

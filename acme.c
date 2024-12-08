@@ -42,6 +42,17 @@ void exibeMenu(){
         printf("\t========================================\n\n");
 }
 
+// PROCEDIMENTO PARA EXIBIR O DADOS DE CLIENTES
+void exibirDadosCliente(CLIENTE *cl){
+    printf("\tDADOS DO CLIENTE %d: \n", cl->ID);
+    printf("\n\tNome:               %s\n", cl->nomeCliente);
+    printf("\n\tEmpresa:            %s\n", cl->nomeEmpresa);
+    printf("\n\tDepartamento:       %s\n", cl->departamento);
+    printf("\n\tTelefone Fixo:      %s\n", cl->telefoneFixo);
+    printf("\n\tTelefone Celular:   %s\n", cl->telefoneCelular);
+    printf("\n\tEmail:              %s\n\n", cl->email);
+}
+
 // FUNÇÕES VERIFICADORAS
 int tamanhoLista(Lista *li){
     if(li == NULL){
@@ -142,6 +153,18 @@ int insereOrdenado(Lista *li, CLIENTE cl){
     }
 }
 
+// OPÇÃO 2 - PROCEDIMENTO PARA EXIBIR A LISTA TODA
+void exibirListaCompleta(Lista *li){
+    printf("\n\t========================================\n\n");
+    printf("\n\tLISTA DE CLIENTES | ACME\n\n");
+    ELEM *no = *li;
+    while (no != NULL)
+    {
+        exibirDadosCliente(&no->dados);
+        printf("\n\t========================================\n\n");
+        no = no->prox;
+    }
+}
 
 // OPÇÃO 3 - CONSULTAR POR ID
 int consultaID(Lista *li, int ID, CLIENTE *cl){
