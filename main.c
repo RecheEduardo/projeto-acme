@@ -67,9 +67,17 @@ int main()
                 break;
 
             case 6:
-
+                printf("\n\tDigite o ID do cliente que deseja remover: ");
+                scanf("%d" , &id);
+                getchar();
+                x = removeOrdenado(li, id);
+                if(x){
+                    printf("\n\t========================================\n\n");
+                    printf("\tCliente %d removido com sucesso!\n\n" , x);
+                }else{
+                    printf("\n\tERRO! Cliente nao foi removido...\n\n");
+                }
                 break;
-
             case 7:
                 apagaLista(li);
                 break;

@@ -34,10 +34,10 @@ void exibeMenu(){
         printf("\t========================================\n\n");
         printf("\tOPCAO 1 - INSERIR CLIENTE\n\n");
         printf("\tOPCAO 2 - EXIBIR LISTA COMPLETA\n\n");
-        printf("\tOPCAO 3 - EXIBIR CONTATO\n\n");
+        printf("\tOPCAO 3 - EXIBIR CLIENTE\n\n");
         printf("\tOPCAO 4 - BUSCAR CLIENTE POR NOME\n\n");
-        printf("\tOPCAO 5 - EDITAR CONTATO\n\n");
-        printf("\tOPCAO 6 - REMOVER CONTATO\n\n");
+        printf("\tOPCAO 5 - EDITAR CLIENTE\n\n");
+        printf("\tOPCAO 6 - REMOVER CLIENTE\n\n");
         printf("\tOPCAO 7 - SALVAR E SAIR\n\n");
         printf("\t========================================\n\n");
 }
@@ -89,7 +89,7 @@ CLIENTE coletaDados(){
 
     CLIENTE cl;
 
-    printf("\n\n\tInserindo novo contato:\n\n");
+    printf("\n\n\tInserindo novo cliente:\n\n");
     printf("\n\tID: ");
     scanf("%d", &cl.ID);
     getchar();
@@ -155,7 +155,10 @@ int insereOrdenado(Lista *li, CLIENTE cl){
 
 // OPÇÃO 2 - PROCEDIMENTO PARA EXIBIR A LISTA TODA
 void exibirListaCompleta(Lista *li){
-    printf("\n\t========================================\n\n");
+    if(li == NULL){
+        abortaPrograma();
+    }
+    printf("\n\t========================================\n");
     printf("\n\tLISTA DE CLIENTES | ACME\n\n");
     ELEM *no = *li;
     while (no != NULL)
@@ -186,13 +189,17 @@ int consultaID(Lista *li, int ID, CLIENTE *cl){
 
 // OPÇÃO 6 - REMOVER CONTATO POR ID
 int removeOrdenado(Lista *li, int ID){
-    int clienteID;
     if(li == NULL){
         abortaPrograma();
     }
+    if(listaVazia(li)){
+        return 0;
+    }
+    int clienteID;
+
     ELEM *ant, *no = *li;
 
-    while(no != NULL && no->dados.ID != clienteID){
+    while(no != NULL && no->dados.ID != ID){
         ant = no;
         no = no->prox;
     }
