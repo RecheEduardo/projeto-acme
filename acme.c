@@ -186,6 +186,29 @@ int consultaID(Lista *li, int ID, CLIENTE *cl){
     }
 }
 
+// OPÇÃO 4 - CONSULTAR POR NOME
+int consultaNome(Lista *li, char nome[80]){
+    if(li == NULL){
+        abortaPrograma();
+    }
+    int numDeClientes = 0;
+    ELEM *no = *li;
+    char *nomeLower = strlwr(nome);
+    char *nomeContatosLower;
+    while(no != NULL){
+        nomeContatosLower = strlwr(no->dados.nomeCliente);
+        if (strcmp(nomeLower, nomeContatosLower) == 0)
+        {
+            exibirDadosCliente(&no->dados);
+            no = no->prox;
+            numDeClientes++;
+        }else{
+            no = no->prox;
+        }
+    }
+    return numDeClientes;
+}
+
 
 // OPÇÃO 6 - REMOVER CONTATO POR ID
 int removeOrdenado(Lista *li, int ID){

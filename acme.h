@@ -18,7 +18,6 @@ void exibeMenu();
 
 void exibirDadosCliente(CLIENTE *cl);
 
-void exibirListaCompleta(Lista *li);
 
 // Verificadores
 int tamanhoLista(Lista *li);
@@ -26,6 +25,7 @@ int tamanhoLista(Lista *li);
 int listaCheia(Lista *li);
 
 int listaVazia(Lista *li);
+
 
 // Coleta dados do cliente
 CLIENTE coletaDados();
@@ -35,7 +35,7 @@ int insereOrdenado(Lista *li, CLIENTE cl);
 
 
 // 2 - Consultar Lista Completa
-// --- foo
+void exibirListaCompleta(Lista *li);
 
 
 // 3 - Consultar por ID
@@ -43,6 +43,7 @@ int consultaID(Lista *li, int ID, CLIENTE *cl);
 
 
 // 4 - Consultar por Nome
+int consultaNome(Lista *li, char nome[80]);
 // --- foo - quando for fazer aqui, lembrar de alocar
 //           numa variavel local o nome do cliente com
 //           a função strupr ou strlwr pra poder comparar

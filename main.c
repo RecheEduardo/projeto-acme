@@ -9,6 +9,7 @@ int main()
     Lista *li = NULL;
 
     int x, opcao, id;
+    char nome[80];
 
     CLIENTE cl;
 
@@ -59,7 +60,12 @@ int main()
                 break;
 
             case 4:
-
+                printf("\n\tDigite o nome do cliente buscado: ");
+                fgets(nome, sizeof(nome), stdin);
+                printf("\n");
+                strtok(nome, "\n");
+                x = consultaNome(li, nome);
+                printf("\n\tNumero total de clientes encontrados: %d\n\n" , x);
                 break;
 
             case 5:
