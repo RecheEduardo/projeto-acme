@@ -93,7 +93,7 @@ int listaVazia(Lista *li){
     if(li == NULL){
         abortaPrograma();
     }
-    if(*li == NULL){
+    if(*li == NULL){ // se a cabeça da lista aponta pra nulo ela é vazia
         return 1;
     }
     return 0;
@@ -111,7 +111,7 @@ CLIENTE coletaDados(){
 
     printf("\n\tNome: ");
     fgets(cl.nomeCliente, sizeof(cl.nomeCliente), stdin);
-    strtok(cl.nomeCliente, "\n");
+    strtok(cl.nomeCliente, "\n"); // strok retira o \n do buffer
 
     printf("\n\tEmpresa: ");
     fgets(cl.nomeEmpresa, sizeof(cl.nomeEmpresa), stdin);
@@ -133,7 +133,7 @@ CLIENTE coletaDados(){
     fgets(cl.email, sizeof(cl.email), stdin);
     strtok(cl.email, "\n");
 
-    return cl;
+    return cl; // retorna um novo cliente completamente preenchido
 }
 
 // OPÇÃO 1 - INSERIR CLIENTE
@@ -176,7 +176,7 @@ void exibirListaCompleta(Lista *li){
     printf("\n\t========================================\n");
     printf("\n\tLISTA DE CLIENTES | ACME\n\n");
     ELEM *no = *li;
-    while (no != NULL)
+    while (no != NULL) // loop que percorre todos os elementos da lista - é utilizado novamente em outras funções
     {
         exibirDadosCliente(&no->dados);
         printf("\n\t========================================\n\n");
@@ -191,13 +191,13 @@ int consultaID(Lista *li, int ID, CLIENTE *cl){
         abortaPrograma();
     }
     ELEM *no = *li;
-    while(no != NULL && no->dados.ID != ID){
-        no = no->prox;
+    while(no != NULL && no->dados.ID != ID){ // enquanto o id não for o especificado,
+        no = no->prox;                       // o nó continuará atuando na lista
     }
     if(no == NULL){
         return 0;
     }else{
-        *cl = no->dados;
+        *cl = no->dados;    // quando o id for igual ao que foi passado, retorna os dados do cliente 
         return 1;
     }
 }
@@ -207,14 +207,13 @@ int consultaNome(Lista *li, char nome[80]) {
     if (li == NULL) {
         abortaPrograma();
     }
-    int numDeClientes = 0;
+    int numDeClientes = 0; // variável de controle para exibir o número de clientes encontrados
     ELEM *no = *li;
 
     // Converte o nome buscado para minúsculas
     char nomeLower[80];
     strcpy(nomeLower, nome);
     strlwr(nomeLower);
-    /*Troquei a função do NomeLower só p poder fazer o STRSTR funcionar direito*/
 
     while (no != NULL) {
         // Converte o nome do cliente para minúsculas
@@ -245,7 +244,7 @@ int editarCliente(Lista *li , int ID){
 
     ELEM *no = *li;
     consultaID(li,ID, &no->dados);
-    exibirDadosCliente(&no->dados);
+    exibirDadosCliente(&no->dados); // exibe os dados do cliente que você quer editar
 
     printf("\n\tTem certeza que quer editar os dados do cliente %d? (1 = Sim / 0 = Nao): ", ID);
     scanf("%d", &editar);
@@ -254,8 +253,8 @@ int editarCliente(Lista *li , int ID){
     if(editar == 1){
         exibirDadosCliente(&no->dados);
         novoCliente = coletaDados();
-        removeOrdenado(li, ID);
-        insereOrdenado(li, novoCliente);
+        removeOrdenado(li, ID);          // a sequencia de funções remove e insere e remove ordenadamente
+        insereOrdenado(li, novoCliente); // o cliente antes e depois da edição
     }
     else{
         printf("\n\tRetornando ao menu principal...\n\n");
@@ -286,23 +285,22 @@ int removeOrdenado(Lista *li, int ID){
     if(no == *li){
         *li = no->prox;
     }else{
-        ant->prox = no->prox;
-    }
+        ant->prox = no->prox; // o cliente é liberado e os ponteiros 
+    }                         // anteriores e posteriores a ele são ligados
     clienteID = no->dados.ID;
     free(no);
     return clienteID;
 }
 
 // OPÇÃO 7 - SALVAR DADOS E APAGAR A LISTA
-
 int salvarClientes(FILE *f, Lista *li) {
     if (li == NULL || f == NULL) {
         return 0;
     }
     ELEM *no = *li;
     while (no != NULL) {
-        if (fwrite(&no->dados, sizeof(CLIENTE), 1, f) != 1) {
-            printf("Erro ao gravar cliente no arquivo.\n");
+        if (fwrite(&no->dados, sizeof(CLIENTE), 1, f) != 1) { // o loop passa por todos os elementos da lista
+            printf("Erro ao gravar cliente no arquivo.\n");   // salvando-os no arquivo clientes.bin
             return;
         }
         no = no->prox;
@@ -316,8 +314,8 @@ void apagaLista(Lista *li){
         while((*li) != NULL){
             no = *li;
             *li = (*li)->prox;
-            free(no);
+            free(no); // o loop libera na memória cada elemento da lista 
         }
-        free(li);
+        free(li); // no final, libera a lista da memória.
     }
 }

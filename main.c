@@ -18,11 +18,11 @@ int main()
 
     li = criaLista();
 
-    // Abrir Arquivo Binário e Verificar se já existe dados salvos
+    // Abrir Arquivo Binï¿½rio e Verificar se jï¿½ existe dados salvos
     f1 = fopen("clientes.bin", "rb");
     if (f1 == NULL) {
         printf("\n\t================================================================\n");
-        printf("\tArquivo 'clientes.bin' não encontrado. Um novo arquivo será criado ao salvar.\n");
+        printf("\tArquivo 'clientes.bin' nï¿½o encontrado. Um novo arquivo serï¿½ criado ao salvar.\n");
         printf("\t================================================================\n");
     } else {
         carregarDados(f1, li);
@@ -137,5 +137,3 @@ int main()
 
     return 0;
 }
-
-
