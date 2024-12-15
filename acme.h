@@ -1,3 +1,6 @@
+// Eduardo Reche Martins - GU3054209
+// Diego Rocha Vitali - GU3053873
+
 typedef struct cliente{
     int ID;
     char nomeCliente[80];

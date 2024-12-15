@@ -4,6 +4,9 @@
 #include <string.h>
 #include "acme.h"
 
+// Eduardo Reche Martins - GU3054209
+// Diego Rocha Vitali - GU3053873
+
 struct elemento{
     CLIENTE dados;
     struct elemento *prox;

@@ -4,6 +4,9 @@
 #include <string.h>
 #include "acme.h"
 
+// Eduardo Reche Martins - GU3054209
+// Diego Rocha Vitali - GU3053873
+
 int main()
 {
     Lista *li = NULL;
@@ -18,11 +21,11 @@ int main()
 
     li = criaLista();
 
-    // Abrir Arquivo Bin�rio e Verificar se j� existe dados salvos
+    // Abrir Arquivo Binario e Verificar se ja existe dados salvos
     f1 = fopen("clientes.bin", "rb");
     if (f1 == NULL) {
         printf("\n\t================================================================\n");
-        printf("\tArquivo 'clientes.bin' n�o encontrado. Um novo arquivo ser� criado ao salvar.\n");
+        printf("\tArquivo 'clientes.bin' nao encontrado. Um novo arquivo sera criado ao salvar.\n");
         printf("\t================================================================\n");
     } else {
         carregarDados(f1, li);
@@ -41,7 +44,7 @@ int main()
         getchar();
 
         switch (opcao) {
-            case 1: // Ja ta completo
+            case 1:
                 cl = coletaDados();
                 //Verifica Duplicidade antes de Inserir na Lista
                 id = cl.ID;
@@ -59,11 +62,11 @@ int main()
                     printf("\n\tERRO! Cliente nao foi inserido...\n\n");
                 }
                 break;
-            case 2: // Ja ta completo
+            case 2:
                 exibirListaCompleta(li);
                 break;
 
-            case 3: // Ja ta completo
+            case 3:
                 printf("\n\tDigite o ID do cliente que deseja consultar: ");
                 scanf("%d" , &id);
                 getchar();
@@ -77,7 +80,7 @@ int main()
                 }
                 break;
 
-            case 4: // OLHAR NO ACME.C
+            case 4:
                 printf("\n\tDigite o nome do cliente buscado: ");
                 fgets(nome, sizeof(nome), stdin);
                 printf("\n");
@@ -86,7 +89,7 @@ int main()
                 printf("\n\tNumero total de clientes encontrados: %d\n\n" , x);
                 break;
 
-            case 5: // AINDA FALTA
+            case 5:
                 printf("\n\tDigite o ID do cliente que deseja editar: ");
                 scanf("%d" , &id);
                 getchar();
@@ -100,7 +103,7 @@ int main()
                 }
                 break;
 
-            case 6: // Ja ta completo
+            case 6:
                 printf("\n\tDigite o ID do cliente que deseja remover: ");
                 scanf("%d" , &id);
                 getchar();
