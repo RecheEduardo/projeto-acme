@@ -200,7 +200,7 @@ int consultaID(Lista *li, int ID, CLIENTE *cl){
     if(no == NULL){
         return 0;
     }else{
-        *cl = no->dados;    // quando o id for igual ao que foi passado, retorna os dados do cliente 
+        *cl = no->dados;    // quando o id for igual ao que foi passado, retorna os dados do cliente
         return 1;
     }
 }
@@ -236,32 +236,32 @@ int consultaNome(Lista *li, char nome[80]) {
 
 
 // OPÇÃO 5 - EDITAR CLIENTE
-int editarCliente(Lista *li , int ID){
-
-    if(li == NULL){
+int editarCliente(Lista *li, int ID) {
+    if (li == NULL) {
         abortaPrograma();
     }
 
     int editar;
-    CLIENTE novoCliente;
+    CLIENTE editCliente;
+    CLIENTE excCliente;
 
-    ELEM *no = *li;
-    consultaID(li,ID, &no->dados);
-    exibirDadosCliente(&no->dados); // exibe os dados do cliente que você quer editar
+    if (!consultaID(li, ID, &excCliente)) {
+        printf("\tCliente com ID %d nao encontrado.\n", ID);
+        return 0;
+    }
+
+    exibirDadosCliente(&excCliente);
 
     printf("\n\tTem certeza que quer editar os dados do cliente %d? (1 = Sim / 0 = Nao): ", ID);
     scanf("%d", &editar);
-    getchar();
 
-    if(editar == 1){
-        exibirDadosCliente(&no->dados);
-        novoCliente = coletaDados();
-        removeOrdenado(li, ID);          // a sequencia de funções remove e insere e remove ordenadamente
-        insereOrdenado(li, novoCliente); // o cliente antes e depois da edição
-    }
-    else{
+    if (editar == 1) {
+        editCliente = coletaDados(); // Coleta os novos dados do cliente
+        removeOrdenado(li, ID);      // Remove o cliente atual
+        insereOrdenado(li, editCliente); // Insere o cliente editado
+    } else {
         printf("\n\tRetornando ao menu principal...\n\n");
-        return;
+        return 0;
     }
     return ID;
 }
@@ -288,7 +288,7 @@ int removeOrdenado(Lista *li, int ID){
     if(no == *li){
         *li = no->prox;
     }else{
-        ant->prox = no->prox; // o cliente é liberado e os ponteiros 
+        ant->prox = no->prox; // o cliente é liberado e os ponteiros
     }                         // anteriores e posteriores a ele são ligados
     clienteID = no->dados.ID;
     free(no);
@@ -317,7 +317,7 @@ void apagaLista(Lista *li){
         while((*li) != NULL){
             no = *li;
             *li = (*li)->prox;
-            free(no); // o loop libera na memória cada elemento da lista 
+            free(no); // o loop libera na memória cada elemento da lista
         }
         free(li); // no final, libera a lista da memória.
     }

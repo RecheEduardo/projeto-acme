@@ -63,3 +63,19 @@
 
 1734221383 c:\users\eduardo\desktop\projetos c\projeto final\projeto-acme\acme.h
 
+1734446610 source:c:\users\didiv\onedrive\documentos\ifsp ads\projeto-acme\acme.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
+1734444578 c:\users\didiv\onedrive\documentos\ifsp ads\projeto-acme\acme.h
+
+1734444578 source:c:\users\didiv\onedrive\documentos\ifsp ads\projeto-acme\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+	"acme.h"
+
