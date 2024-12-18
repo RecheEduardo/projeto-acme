@@ -1,6 +1,6 @@
 # 📋 **Documentação do Projeto ACME**
 
-## 👥 Desenvolvedores
+## 👥 Um projeto acadêmico do IFSP desenvolvido por
 - Eduardo Reche Martins  
 - Diego Rocha Vitali  
 
