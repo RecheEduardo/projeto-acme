@@ -1,8 +1,12 @@
-# 📋 **Documentação do Projeto ACME**
+<p align="center">
+   <img src="https://readme-typing-svg.herokuapp.com?font=Helvetica&weight=700&size=30&width=550&pause=1000&color=FFFFFF&lines=%F0%9F%93%8B+Documenta%C3%A7%C3%A3o+do+Projeto+ACME" />   
+</p>
 
-## 👥 Um projeto acadêmico do IFSP desenvolvido por
-- Eduardo Reche Martins  
-- Diego Rocha Vitali  
+---
+
+## 👥 Um projeto acadêmico de Estrutura de Dados do IFSP desenvolvido por
+### • Eduardo Reche Martins | <a href="https://github.com/RecheEduardo" target="_blank">Github</a> | <a href="https://www.linkedin.com/in/eduardorechemartins/" target="_blank">LinkedIn</a>
+### • Diego Rocha Vitali | <a href="https://github.com/Diego-Vitali" target="_blank">Github</a> | <a href="https://www.linkedin.com/in/diego-vitali-625619288/" target="_blank">LinkedIn</a>
 
 ---
 
@@ -97,7 +101,15 @@ Cada cliente cadastrado possui os seguintes atributos:
 ## 🌟 **Como Usar**
 1. **Compile e execute o programa em um ambiente compatível (recomendado: Code::Blocks).**  
 2. **Siga o menu principal e escolha uma das opções abaixo:**  
-
+```text
+OPÇÃO 1 - INSERIR CLIENTE  
+OPÇÃO 2 - EXIBIR LISTA COMPLETA  
+OPÇÃO 3 - EXIBIR CLIENTE  
+OPÇÃO 4 - BUSCAR CLIENTE POR NOME  
+OPÇÃO 5 - EDITAR CLIENTE  
+OPÇÃO 6 - REMOVER CLIENTE  
+OPÇÃO 7 - SALVAR E SAIR  
+```
 
 3. **Preencha as informações solicitadas com atenção para evitar erros.**  
 4. **Não esqueça de salvar os dados antes de sair!**
